@@ -1,0 +1,37 @@
+Annotation注解java.lang.annotation
+元注解
+	作用：负责注解其它注解
+	1.@Target
+		作用：用于描述注解的使用范围（即：被描述的注解可以用在什么地方）
+		取值(ElementType)有：
+			1.Construction：用于描述构造器
+			2.Field：用于描述域
+			3.Local_variable：用于描述局部变量
+			4.Method：用于描述方法
+			5.Package：用于描述包
+			6.Parameter：用于描述参数
+			7.Type：用于描述类、借口（包括注解类型）或enum声明
+	2.@Retention
+		作用：表示需要在什么级别保存该注解信息，用于描述注解的生命周期（即：被描述的注解生命范围内有效）
+		取值（RetentionPoicy）有：
+			1.Source：在源文件中有效（即源文件保留）
+			2.Class：在class文件中有效（即class保留）
+			3.Runtime：在运行时有效（即运行时保留）
+	3.@Documented
+		作用：表明这个注解应该被javadoc工具记录，默认情况下，javadoc是不包括注解的，但如果声明注解时指定了
+		@Documented，则它会被javadoc之类的工具处理，所以注解类型信息也会被包括在生成的文档中
+		Documented是一个标记注解，没有成员
+	4.@Inherited
+		作用：@Inherited阐述了某个被标注的类型是被继承的。
+
+自定义注解
+	@interface来声明一个注解，使用@interface自定义注解时，自动继承java.lang.annotation接口，由编译程序自动完成其他细节。
+	在定义注解时，不能继承其他的注解或接口。
+	定义注解格式：
+		1.所有基本数据类型（int,float,boolean,byte,double,char,long,short）
+		2.String类型
+		3.Class类型
+		4.enum类型
+		5.Annotation类型
+		6.以上所有类型的数组
+	
